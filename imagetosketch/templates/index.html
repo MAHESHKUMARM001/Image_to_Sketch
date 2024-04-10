@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencil Sketch App</title>
+</head>
+<body>
+    <h1>Pencil Sketch App</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <button type="submit">Upload</button>
+    </form>
+    {% if sketch %}
+        <h2>Original Image</h2>
+        <img src="{{ sketch }}" alt="Original Image" style="max-width: 500px;">
+        <h2>Pencil Sketch</h2>
+        <img src="{{ sketch }}" alt="Pencil Sketch" style="max-width: 500px;">
+    {% endif %}
+</body>
+</html>
